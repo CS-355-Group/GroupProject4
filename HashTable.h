@@ -40,16 +40,19 @@ private:
 };
 
 
-HashTable(int initTableSize) {
+template <typename DataType, typename KeyType>
+HashTable<DataType, KeyType>::HashTable(int initTableSize) {
 	tableSize = initTableSize;
 	dataTable = new LinkedList<DataType, KeyType>[tableSize];
 }
 
-HashTable(const HashTable& other) {
+template <typename DataType, typename KeyType>
+HashTable<Datatype, KeyType>::HashTable(const HashTable& other) {
 	copyTable(other);
 }
 
-HashTable& operator=(const HashTable& other) {
+template <typename DataType, typename KeyType>
+HashTable<DataType, KeyType>::HashTable& operator=(const HashTable& other) {
     if(this != other) {
 	delete[] dataTable;
 
@@ -57,23 +60,26 @@ HashTable& operator=(const HashTable& other) {
 
 	dataTable = new LinkedList<DataType, KeyType>* [tableSize];
 
-	for(int i = o; i < tableSize; i++) {
+	for(int i = 0; i < tableSize; i++) {
 		dataTable[i] = other.dataTable[i];
 	}
     }
     return *this;
 }
 
-~HashTable() {
+template <typename DataType, typename KeyType>
+HashTable<DataType, KeyType>::~HashTable() {
 	dataTable.clear();
 }
 
 
-void insert(const DataType& newDataItem, const KeyType& key){
+template <typename DataType, typename KeyType>
+void Hashtable<DataType, KeyType>::insert(const DataType& newDataItem, const KeyType& key){
 	
 }
 	
-bool remove(const KeyType& deleteKey) {
+template <typename DataType, typename KeyType>
+bool HashTable<DataType, KeyType>::remove(const KeyType& deleteKey) {
     int index = hash(deleteKey);
 	
     //Make sure bucket is not empty
@@ -90,11 +96,13 @@ bool remove(const KeyType& deleteKey) {
 	return false;
     }
 
-    bool retrieve(const KeyType& searchKey, DataType& returnItem) const {
+template <typename DataType, typename KeyType>
+bool HashTable<DataType, KeyType>::retrieve(const KeyType& searchKey, DataType& returnItem) const {
 	
-    }
+}
 
-    void clear() {
+template <typename DataType, typename KeyType>
+void HashTable<DataType, KeyType>::clear() {
 	
-    }
+}
 #endif // ifndef HASHTABLE_H
