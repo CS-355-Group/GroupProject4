@@ -12,58 +12,19 @@ using namespace std;
 template <typename DataType, typename KeyType>
 class HashTable {
 public:
-    HashTable(int initTableSize) {
-	tableSize = initTableSize;
-	dataTable = new LinkedList<DataType, KeyType>[tableSize];
-    }
+    HashTable(int initTableSize);
 
-    HashTable(const HashTable& other) {
-	copyTable(other);
-    }
+    HashTable(const HashTable& other);
 
-    HashTable& operator=(const HashTable& other) {
-	if(this != other) {
-		delete[] dataTable;
+    HashTable& operator=(const HashTable& other);
 
-		tableSize = other.tableSize;
+    ~HashTable();
 
-		dataTable = new LinkedList<DataType, KeyType>* [tableSize];
+    void insert(const DataType& newDataItem, const KeyType& key);
 
-		for(int i = o; i < tableSize; i++) {
-			dataTable[i] = other.dataTable[i];
-		}
-	}
-	return *this;
-    }
+    bool remove(const KeyType& deleteKey);
 
-    ~HashTable() {
-	    dataTable.clear();
-    }
-
-
-    void insert(const DataType& newDataItem, const KeyType& key){
-	
-    }
-
-    bool remove(const KeyType& deleteKey) {
-	int index = hash(deleteKey);
-	
-	//Make sure bucket is not empty
-	if (dataTable[index].isEmpty()) {
-		return false;
-	}
-
-	//Call remove function from the linked list in the correct index
-	if(dataTable[index].remove(deleteKey)) {
-		return true;
-	}
-
-	//Key was not found
-	return false;
-    }
-    bool retrieve(const KeyType& searchKey, DataType& returnItem) const {
-	
-    }
+    bool retrieve(const KeyType& searchKey, DataType& returnItem) const;
 
     void clear();
 
@@ -78,4 +39,62 @@ private:
     LinkedList<DataType, KeyType>* dataTable;
 };
 
+
+HashTable(int initTableSize) {
+	tableSize = initTableSize;
+	dataTable = new LinkedList<DataType, KeyType>[tableSize];
+}
+
+HashTable(const HashTable& other) {
+	copyTable(other);
+}
+
+HashTable& operator=(const HashTable& other) {
+    if(this != other) {
+	delete[] dataTable;
+
+	tableSize = other.tableSize;
+
+	dataTable = new LinkedList<DataType, KeyType>* [tableSize];
+
+	for(int i = o; i < tableSize; i++) {
+		dataTable[i] = other.dataTable[i];
+	}
+    }
+    return *this;
+}
+
+~HashTable() {
+	dataTable.clear();
+}
+
+
+void insert(const DataType& newDataItem, const KeyType& key){
+	
+}
+	
+bool remove(const KeyType& deleteKey) {
+    int index = hash(deleteKey);
+	
+    //Make sure bucket is not empty
+    if (dataTable[index].isEmpty()) {
+	return false;
+    }
+
+    //Call remove function from the linked list in the correct index
+    if(dataTable[index].remove(deleteKey)) {
+	return true;
+    }
+
+    //Key was not found
+	return false;
+    }
+
+    bool retrieve(const KeyType& searchKey, DataType& returnItem) const {
+	
+    }
+
+    void clear() {
+	
+    }
 #endif // ifndef HASHTABLE_H
