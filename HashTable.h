@@ -37,7 +37,7 @@ public:
     }
 
     ~HashTable() {
-	    delete[] dataTable;
+	    dataTable.clear();
     }
 
 
@@ -61,7 +61,10 @@ public:
 	//Key was not found
 	return false;
     }
-    bool retrieve(const KeyType& searchKey, DataType& returnItem) const;
+    bool retrieve(const KeyType& searchKey, DataType& returnItem) const {
+	
+    }
+
     void clear();
 
     bool isEmpty() const;
