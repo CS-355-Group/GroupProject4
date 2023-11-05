@@ -103,7 +103,7 @@ bool HashTable<DataType, KeyType>::retrieve(const KeyType& searchKey, DataType& 
 
 template <typename DataType, typename KeyType>
 void HashTable<DataType, KeyType>::clear() {
-    dataTable.clear();
+    dataTable->clear();
     tableSize = 0;
 }
 #endif // ifndef HASHTABLE_H
