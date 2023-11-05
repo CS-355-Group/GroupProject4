@@ -47,18 +47,18 @@ HashTable<DataType, KeyType>::HashTable(int initTableSize) {
 }
 
 template <typename DataType, typename KeyType>
-HashTable<DataType, KeyType>::HashTable(const HashTable& other) {
+HashTable<DataType, KeyType>::HashTable(const HashTable<DataType, KeyType>& other) {
 	copyTable(other);
 }
 
 template <typename DataType, typename KeyType>
-HashTable<DataType, KeyType>::HashTable& operator=(const HashTable& other) {
+HashTable<DataType, KeyType>& HashTable<DataType, KeyType>::operator=(const HashTable<DataType, KeyType>& other) {
     if(this != other) {
 	delete[] dataTable;
 
 	int tableSize = other.tableSize;
 
-	dataTable = new LinkedList<DataType, KeyType>* [tableSize];
+dataTable = new LinkedList<DataType, KeyType>* [tableSize];
 
 	for(int i = 0; i < tableSize; i++) {
 		dataTable[i] = other.dataTable[i];
