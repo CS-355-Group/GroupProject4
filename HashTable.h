@@ -69,12 +69,12 @@ HashTable<DataType, KeyType>::HashTable& operator=(const HashTable& other) {
 
 template <typename DataType, typename KeyType>
 HashTable<DataType, KeyType>::~HashTable() {
-	dataTable.clear();
+	clear();
 }
 
 
 template <typename DataType, typename KeyType>
-void Hashtable<DataType, KeyType>::insert(const DataType& newDataItem, const KeyType& key){
+void HashTable<DataType, KeyType>::insert(const DataType& newDataItem, const KeyType& key){
 	
 }
 	
@@ -103,6 +103,7 @@ bool HashTable<DataType, KeyType>::retrieve(const KeyType& searchKey, DataType& 
 
 template <typename DataType, typename KeyType>
 void HashTable<DataType, KeyType>::clear() {
-	
+    dataTable.clear();
+    tableSize = 0;
 }
 #endif // ifndef HASHTABLE_H
