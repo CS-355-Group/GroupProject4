@@ -104,4 +104,9 @@ void HashTable<DataType, KeyType>::clear() {
     dataTable->clear();
     tableSize = 0;
 }
+
+template <typename DataType, typename KeyType>
+bool isEmpty() const{
+    return dataTable->isEmpty();    
+}
 #endif // ifndef HASHTABLE_H
