@@ -42,10 +42,25 @@ public:
 
 
     void insert(const DataType& newDataItem, const KeyType& key){
-
+	
     }
 
-    bool remove(const KeyType& deleteKey);
+    bool remove(const KeyType& deleteKey) {
+	int index = hash(deleteKey);
+	
+	//Make sure bucket is not empty
+	if (dataTable[index].isEmpty()) {
+		return false;
+	}
+
+	//Call remove function from the linked list in the correct index
+	if(dataTable[index].remove(deleteKey)) {
+		return true;
+	}
+
+	//Key was not found
+	return false;
+    }
     bool retrieve(const KeyType& searchKey, DataType& returnItem) const;
     void clear();
 
