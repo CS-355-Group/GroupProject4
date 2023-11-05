@@ -81,12 +81,12 @@ void HashTable<DataType, KeyType>::insert(const DataType& newDataItem, const Key
 template <typename DataType, typename KeyType>
 bool HashTable<DataType, KeyType>::remove(const KeyType& deleteKey) {
     //Make sure bucket is not empty
-    if (dataTable[deleteKey].isEmpty()) {
+    if (dataTable->isEmpty()) {
 	return false;
     }
 
     //Call remove function from the linked list in the correct index
-    if(dataTable[deleteKey].remove(deleteKey)) {
+    if(dataTable->remove(deleteKey)) {
 	return true;
     }
 
