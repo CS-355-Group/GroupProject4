@@ -1,5 +1,7 @@
 #include <iostream>
 #include <unordered_map>
+#include <string>
+
 using namespace std;
 
 void print_help();
@@ -14,14 +16,21 @@ int main(){
 
         cout << endl << "Command: ";
         char cmd;
-        cin >> cmd;
+	string input;
+	int pos = 1;
+        int item, key;
+        getline(cin,input); 
 
-        int item;
+	cmd = input.substr(0,pos);
+	input.erase(0,pos);
+	pos = input.find(" ");
+	key = input.substr(0,pos);
+	input.erase(0,++pos);
+	value = input;
+
+	/*
         if (cmd == '+' || cmd == '?' || cmd == '-') {
-            int key, value;
-            cin >> key; 
-	    cin >> value;
-            hashMap[key] = value;
+           
         }
 
         switch (cmd) {
@@ -70,7 +79,7 @@ int main(){
                     << (table.isEmpty() ? "" : "NOT")
                     << " empty" << endl;
                 break;
-
+*/
             case 'Q':
             case 'q':
                 return 0;
