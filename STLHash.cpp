@@ -11,26 +11,19 @@ int main(){
 
     print_help();
 
-     do {
-        table.showStructure();
+ do {
+        for (auto x : hashMap){ 
+    	    cout << x.first << " " <<  x.second << endl; 
+	}
 
         cout << endl << "Command: ";
         char cmd;
-	string input;
-	int pos = 1;
-        int item, key;
-        getline(cin,input); 
+        cin >> cmd;
 
-	cmd = input.substr(0,pos);
-	input.erase(0,pos);
-	pos = input.find(" ");
-	key = input.substr(0,pos);
-	input.erase(0,++pos);
-	value = input;
-
-	/*
+        int key, value;
         if (cmd == '+' || cmd == '?' || cmd == '-') {
-           
+            cin >> key;
+	    cin >> value;
         }
 
         switch (cmd) {
@@ -40,19 +33,21 @@ int main(){
                 break;
 
             case '+':
-                table.insert(item, item.getKey());
+                hashMap.insert(make_pair(key, value)); 
                 cout << "Inserted data item with key ("
-                    << item.getKey() << ") and value ("
-                    << item.getValue() << ")" << endl;
+                    << key << ") and value ("
+                    << value << ")" << endl;
                 break;
 
             case '-':
-                if (table.remove(item.getKey())) {
+                if (hashMap.find(key) != hashMap.end()) {
                     cout << "Removed data item with key ("
-                        << item.getKey() << ")" << endl;
-                } else {
+                        << key << ")" << endl;
+			hashMap.erase(key);
+                } 
+		else {
                     cout << "Could not remove data item with key ("
-                        << item.getKey() << ")" << endl;
+                        << key << ")" << endl;
                 }
                 break;
 
@@ -79,7 +74,7 @@ int main(){
                     << (table.isEmpty() ? "" : "NOT")
                     << " empty" << endl;
                 break;
-*/
+
             case 'Q':
             case 'q':
                 return 0;
