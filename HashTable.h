@@ -75,7 +75,7 @@ HashTable<DataType, KeyType>::~HashTable() {
 
 template <typename DataType, typename KeyType>
 void HashTable<DataType, KeyType>::insert(const DataType& newDataItem, const KeyType& key){
-	
+    dataTable->insert(newDataItem, key);
 }
 	
 template <typename DataType, typename KeyType>
