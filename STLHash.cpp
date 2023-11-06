@@ -52,26 +52,26 @@ int main(){
                 break;
 
             case '?':
-                if (table.retrieve(item.getKey(), item)) {
+                if (hashMap.find(key) != hashMap.end()) {
                     cout << "Retrieved data item with key ("
-                        << item.getKey() << ") and value ("
-                        << item.getValue() << ")" << endl;
+                        << key << ") and value ("
+                        << hashMap.at(key) << ")" << endl;
                 } else {
                     cout << "Could not retrieve data item with key ("
-                        << item.getKey() << ")" << endl;
+                        << key << ")" << endl;
                 }
                 break;
 
             case 'C':
             case 'c':
                 cout << "Clear the hash table" << endl;
-                table.clear();
+                hashMap.erase(hashMap.begin(), hashMap.end());
                 break;
 
             case 'E':
             case 'e':
                 cout << "Hash table is "
-                    << (table.isEmpty() ? "" : "NOT")
+                    << (hashMap.empty() ? "" : "NOT")
                     << " empty" << endl;
                 break;
 
