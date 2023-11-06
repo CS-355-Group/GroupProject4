@@ -9,16 +9,78 @@ int main(){
 
     print_help();
 
-    do {
-	    hashMap;
+     do {
+        table.showStructure();
 
-	    cout << endl << "Command: ";
-	    char cmd;
-	    cin >> cmd;
+        cout << endl << "Command: ";
+        char cmd;
+        cin >> cmd;
 
+        int item;
+        if (cmd == '+' || cmd == '?' || cmd == '-') {
+            int key, value;
+            cin >> key; 
+	    cin >> value;
+            hashMap[key] = value;
+        }
 
+        switch (cmd) {
+            case 'H':
+            case 'h':
+                print_help();
+                break;
 
+            case '+':
+                table.insert(item, item.getKey());
+                cout << "Inserted data item with key ("
+                    << item.getKey() << ") and value ("
+                    << item.getValue() << ")" << endl;
+                break;
 
+            case '-':
+                if (table.remove(item.getKey())) {
+                    cout << "Removed data item with key ("
+                        << item.getKey() << ")" << endl;
+                } else {
+                    cout << "Could not remove data item with key ("
+                        << item.getKey() << ")" << endl;
+                }
+                break;
+
+            case '?':
+                if (table.retrieve(item.getKey(), item)) {
+                    cout << "Retrieved data item with key ("
+                        << item.getKey() << ") and value ("
+                        << item.getValue() << ")" << endl;
+                } else {
+                    cout << "Could not retrieve data item with key ("
+                        << item.getKey() << ")" << endl;
+                }
+                break;
+
+            case 'C':
+            case 'c':
+                cout << "Clear the hash table" << endl;
+                table.clear();
+                break;
+
+            case 'E':
+            case 'e':
+                cout << "Hash table is "
+                    << (table.isEmpty() ? "" : "NOT")
+                    << " empty" << endl;
+                break;
+
+            case 'Q':
+            case 'q':
+                return 0;
+
+            default:
+                cout << "Invalid command" << endl;
+        }
+    } while (1);
+
+    return 0;
 }
 
 void print_help(){
