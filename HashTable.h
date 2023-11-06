@@ -106,7 +106,7 @@ void HashTable<DataType, KeyType>::clear() {
 }
 
 template <typename DataType, typename KeyType>
-bool isEmpty() const{
+bool HashTable<DataType, KeyType>::isEmpty() const{
     return dataTable->isEmpty();    
 }
 
