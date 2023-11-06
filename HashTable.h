@@ -96,7 +96,7 @@ bool HashTable<DataType, KeyType>::remove(const KeyType& deleteKey) {
 
 template <typename DataType, typename KeyType>
 bool HashTable<DataType, KeyType>::retrieve(const KeyType& searchKey, DataType& returnItem) const {
-	
+	dataTable->retrieve(searchKey, returnItem);
 }
 
 template <typename DataType, typename KeyType>
