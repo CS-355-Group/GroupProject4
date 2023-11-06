@@ -109,4 +109,11 @@ template <typename DataType, typename KeyType>
 bool isEmpty() const{
     return dataTable->isEmpty();    
 }
+
+
+template <typename DataType, typename KeyType>
+void HashTable<DataType, KeyType>::showStructure() const{
+
+}
+
 #endif // ifndef HASHTABLE_H
