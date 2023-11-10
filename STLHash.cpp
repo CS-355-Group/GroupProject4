@@ -1,3 +1,10 @@
+//-------------------------------------------------------------------------
+// Braden Harris & Wyatt Hooper
+// Group Project 4
+// CS-355
+// 11/9/2023
+// Create and implement a hash map from the STL library.
+//-------------------------------------------------------------------------
 #include <iostream>
 #include <unordered_map>
 #include <string>
