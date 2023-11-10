@@ -46,11 +46,20 @@ int main(){
                 break;
 
             case '+':
-                hashMap.insert(make_pair(key, value)); 
-                cout << "Inserted data item with key ("
-                    << key << ") and value ("
-                    << value << ")" << endl;
-                break;
+		if (hashMap.find(key) != hashMap.end()){
+			cout << "That key already holds a value!" << endl;
+			
+			break;
+		}
+
+		else{
+                	hashMap.insert(make_pair(key, value)); 
+                	cout << "Inserted data item with key ("
+                    		<< key << ") and value ("
+                    		<< value << ")" << endl;
+
+               		 break;
+		}
 
             case '-':
                 if (hashMap.find(key) != hashMap.end()) {
