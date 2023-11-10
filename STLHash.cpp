@@ -13,7 +13,7 @@ int main(){
     //display the menu
     print_help();
 
-\// loop until user is finished
+// loop until user is finished
  do {
 	//iterate through the map and display
         for (auto x : hashMap){ 
