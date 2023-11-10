@@ -7,25 +7,38 @@ using namespace std;
 void print_help();
 
 int main(){
+    //initialize the hash map
     unordered_map<int, int> hashMap;
 
+    //display the menu
     print_help();
 
+\// loop until user is finished
  do {
+	//iterate through the map and display
         for (auto x : hashMap){ 
     	    cout << x.first << " " <<  x.second << endl; 
 	}
 
+	//get desired command
         cout << endl << "Command: ";
         char cmd;
         cin >> cmd;
 
         int key, value;
-        if (cmd == '+' || cmd == '?' || cmd == '-') {
+
+	// if the user wants to add, get key and value 
+        if (cmd == '+' ) {
             cin >> key;
 	    cin >> value;
         }
 
+	// if the user wants to remove or retrieve get the key
+	else if (cmd == '?' || cmd == '-') {
+            cin >> key; 
+	}
+
+	// execute the desired command
         switch (cmd) {
             case 'H':
             case 'h':
@@ -75,10 +88,12 @@ int main(){
                     << " empty" << endl;
                 break;
 
+	    // quit
             case 'Q':
             case 'q':
                 return 0;
 
+	    // user input does not match availible choices
             default:
                 cout << "Invalid command" << endl;
         }
@@ -86,11 +101,15 @@ int main(){
 
     return 0;
 }
-
+//------------------------------------------------------------------------------------------
+// print_help()
+// no parameters
+// no return value
+// The print_help function displays a menu for the user to choose disired actions
 void print_help(){
     cout << endl << "Commands:" << endl;
     cout << " H  : Help (displays this message)" << endl;
-    cout << " +x : Insert (or update) data item with key x" << endl;
+    cout << " +x : Insert (or update) data item with key x then desired value" << endl;
     cout << " -x : Remove the data element with the key x" << endl;
     cout << " ?x : Retrieve the data element with the key x" << endl;
     cout << " E  : Empty table?" << endl;
