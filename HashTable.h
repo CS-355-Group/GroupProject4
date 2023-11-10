@@ -5,7 +5,6 @@
 // 11/9/23
 // Implement a hashtable using a linked list
 //--------------------------------------------------------------------------------
-// HashTable.h
 #ifndef HASHTABLE_H
 #define HASHTABLE_H
 
@@ -50,7 +49,7 @@ private:
 // input: integer for table size
 // return: none
 // Description: takes in an integer for the size of table then initializes a table of that type and size
-// Author:
+// Author: Wyatt Hooper
 template <typename DataType, typename KeyType>
 HashTable<DataType, KeyType>::HashTable(int initTableSize) {
 	tableSize = initTableSize;
@@ -63,7 +62,7 @@ HashTable<DataType, KeyType>::HashTable(int initTableSize) {
 // return: none
 // Description: takes in an integer for the size of table then initializes a table of that type and size and copies
 //	the given hashtable into it
-// Author:
+// Author: Wyatt Hooper
 template <typename DataType, typename KeyType>
 HashTable<DataType, KeyType>::HashTable(const HashTable<DataType, KeyType>& other) {
 	copyTable(other);
@@ -74,7 +73,7 @@ HashTable<DataType, KeyType>::HashTable(const HashTable<DataType, KeyType>& othe
 // input: hashtable
 // return: none
 // Description: takes in a hashtable, then makes a deep copy
-// Author:
+// Author: Wyatt Hooper
 template <typename DataType, typename KeyType>
 HashTable<DataType, KeyType>& HashTable<DataType, KeyType>::operator=(const HashTable<DataType, KeyType>& other) {
     if(this != other) {
@@ -96,7 +95,7 @@ dataTable = new LinkedList<DataType, KeyType>* [tableSize];
 // input: none
 // return: none
 // Description: deallocates memeory
-// Author:
+// Author: Wyatt Hooper
 template <typename DataType, typename KeyType>
 HashTable<DataType, KeyType>::~HashTable() {
 	clear();
@@ -107,7 +106,7 @@ HashTable<DataType, KeyType>::~HashTable() {
 // input: a value and a key
 // return: none
 // Description: accepts a value and key and inserts it into the hashtable
-// Author:
+// Author: Braden Harris
 template <typename DataType, typename KeyType>
 void HashTable<DataType, KeyType>::insert(const DataType& newDataItem, const KeyType& key){
     dataTable->insert(newDataItem, key);
@@ -118,7 +117,7 @@ void HashTable<DataType, KeyType>::insert(const DataType& newDataItem, const Key
 // input: hashtable
 // return: bool representing if desired value could be deleted
 // Description: takes in a key to be deleted, checks to see if it exists, and if it does then it is deleted
-// Author:
+// Author: Wyatt Hooper
 template <typename DataType, typename KeyType>
 bool HashTable<DataType, KeyType>::remove(const KeyType& deleteKey) {
     //Make sure bucket is not empty
@@ -136,11 +135,11 @@ bool HashTable<DataType, KeyType>::remove(const KeyType& deleteKey) {
     }
 
 //---------------------------------------------------------------------------------------------------------------------------
-// oretrieve()
+// retrieve()
 // input: key and value
 // return: bool that represents if the value exists
 // Description: takes in a key value pair and then searches the table to see if it exists
-// Author:
+// Author: Wyatt Hooper
 template <typename DataType, typename KeyType>
 bool HashTable<DataType, KeyType>::retrieve(const KeyType& searchKey, DataType& returnItem) const {
 	return dataTable->retrieve(searchKey, returnItem);
@@ -151,7 +150,7 @@ bool HashTable<DataType, KeyType>::retrieve(const KeyType& searchKey, DataType& 
 // input: none
 // return: none
 // Description: clears the hashtable
-// Author:
+// Author: Braden Harris
 template <typename DataType, typename KeyType>
 void HashTable<DataType, KeyType>::clear() {
     dataTable->clear();
@@ -163,7 +162,7 @@ void HashTable<DataType, KeyType>::clear() {
 // input: none
 // return: bool if empty
 // Description: checks to see if the hashtable is empty
-// Author:
+// Author: Braden Harris
 template <typename DataType, typename KeyType>
 bool HashTable<DataType, KeyType>::isEmpty() const{
     return dataTable->isEmpty();    
@@ -174,7 +173,7 @@ bool HashTable<DataType, KeyType>::isEmpty() const{
 // input: none
 // return: none
 // Description: displays all key value pairs within the hashtable
-// Author:
+// Author: Wyatt Hooper
 template <typename DataType, typename KeyType>
 void HashTable<DataType, KeyType>::showStructure() const{
 	dataTable->showStructure();
